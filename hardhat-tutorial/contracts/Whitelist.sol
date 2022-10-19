@@ -27,5 +27,11 @@ contract Whitelist {
   */
   function addAddressToWhitelist() public {
     // check if the user has already been whitelisted
+    require(!whitelistedAddresses[msg.sender], "Sender has already been whitelisted");
+    require(numAddressesWhitelisted < maxWhitelistedAddresses, "More addresses cant be aded, limit reached");
+    // add the address which called the function to the whitelistedAddress Array
+    whitelistedAddress[msg.sender] = true;
+    // increaes the number of whitelisted numAddressesWhitelisted
+    numAddressesWhitelisted += 1;
   }
 }
