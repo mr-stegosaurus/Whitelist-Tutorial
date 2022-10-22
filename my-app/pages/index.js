@@ -94,7 +94,7 @@ export default function Home() {
       );
       // call the numAddressesWhitelisted from the contact
       const _numberOfWhitelisted = 
-        await whitelistContract.numbAddressesWhitelisted();
+        await whitelistContract.numAddressesWhitelisted();
       setNumberOfWhitelisted(_numberOfWhitelisted);
     } catch (err) {
       console.error(err);
@@ -175,7 +175,7 @@ export default function Home() {
 
   // useEffects are used to react to changes in state of the website
   // the array at the end of function call represents what state changes will trigger this effect
-  // in this case, whenever the value of 'waletconnected changes - this effect will be called
+  // in this case, whenever the value of 'walletconnected' changes - this effect will be called
   useEffect(() => {
     // if wallet is not connected, create a new instance of Web3Modal and connect the metamask wallet
     if (!walletConnected) {
