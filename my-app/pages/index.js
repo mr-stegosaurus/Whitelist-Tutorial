@@ -173,5 +173,46 @@ export default function Home() {
     }
   };
 
+  // useEffects are used to react to changes in state of the website
+  // the array at the end of function call represents what state changes will trigger this effect
+  // in this case, whenever the value of 'waletconnected changes - this effect will be called
+  useEffect(() => {
+    // if wallet is not connected, create a new instance of Web3Modal and connect the metamask wallet
+    if (!walletConnected) {
+      //assign the web3modal class to the reference object by setting it's current value
+      //the current value is persisted throughout as long as this page is open
+      web3ModalRef.current = new Web3Modal({
+        networ: 'goerli',
+        providerOptions: {},
+        disableInjectedProvider: false,
+      });
+      connectWallet();
+    }
+  }, [walletConnected]);
 
+  return (
+    <div>
+      <Head>
+        <title>Whitelist Dapp</title>
+        <meta name="description" content="Whitelist-Dapp" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.main}>
+        <div>
+          <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
+          <div className={styles.description}>
+            Its an NFT collection for developers in Crypto.
+          </div>
+          {renderButton()}
+        </div>
+        <div>
+          <img className={styles.image} src="./crypto-devs.svg" />
+        </div>
+      </div>
+
+    <footer className={styles.footer}>
+      Made with &#10084; by Crypto Devs
+    </footer>
+    </div>
+  );
 }
