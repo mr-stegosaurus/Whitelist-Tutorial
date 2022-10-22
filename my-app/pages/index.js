@@ -152,7 +152,7 @@ export default function Home() {
       if (joinedWhitelist) {
         return (
           <div className={styles.description}>
-            Thanks for joined the Whitelist!
+            Thanks for joining the Whitelist!
           </div>
         );
       } else if (loading) {
