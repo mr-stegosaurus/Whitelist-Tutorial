@@ -94,7 +94,7 @@ export default function Home() {
       );
       // call the numAddressesWhitelisted from the contact
       const _numberOfWhitelisted = 
-        await whitelistedContract.numbAddressesWhitelisted();
+        await whitelistContract.numbAddressesWhitelisted();
       setNumberOfWhitelisted(_numberOfWhitelisted);
     } catch (err) {
       console.error(err);
